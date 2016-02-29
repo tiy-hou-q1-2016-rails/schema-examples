@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+
+  get '/welcome/:id' => 'welcome#show'
+
+  get '/peds' => 'welcome#peds'
+  get '/in-game' => 'welcome#in_game'
+  get '/substance-abuse' => 'welcome#substance_abuse'
+  get '/personal-conduct' => 'welcome#personal_conduct'
+  get '/repeat-peds' => 'welcome#repeat_peds'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

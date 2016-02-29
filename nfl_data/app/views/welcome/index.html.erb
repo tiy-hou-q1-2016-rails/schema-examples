@@ -1,0 +1,63 @@
+<h1>Welcome#index</h1>
+
+<nav>
+  <%= link_to 'PEDs', '/peds' %>
+  <%= link_to 'PEDs - Repeat', '/repeat-peds' %>
+  <%= link_to 'In Game Violence', '/in-game' %>
+  <%= link_to 'substance-abuse', '/substance-abuse' %>
+  <%= link_to 'personal-conduct', '/personal-conduct' %>
+</nav>
+
+
+Records: <%= @nfl_suspensions.count %>
+
+<form>
+  <input type="text" name="query" value="" placeholder="Search for Name">
+
+  <select class="" name="category">
+    <option value="">Select a Category</option>
+    <option value="all-drugs">All Drug Related</option>
+    <option value="PEDs">PEDs</option>
+    <option value="In-Game Violence">In Game Violence</option>
+    <option value="Substance Abuse">Substance Abuse</option>
+    <option value="Personal Conduct">Personal Conduct</option>
+  </select>
+  <button>Clicky</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Category
+      </th>
+      <th>
+        Year
+      </th>
+      <th>
+        View Details
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nfl_suspensions.each do |nfl_suspension| %>
+      <tr>
+        <td>
+          <%= nfl_suspension.name %>
+        </td>
+        <td>
+          <%= nfl_suspension.category %>
+        </td>
+        <td>
+          <%= nfl_suspension.year %>
+        </td>
+        <td>
+          <%= link_to "View Details", "/welcome/#{nfl_suspension.id}" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
